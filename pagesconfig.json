@@ -1,0 +1,13 @@
+{
+    "groups": [
+        {
+            "title": "Examples",
+            "pages": [
+                {
+                    "title": "Usage",
+                    "source": "./documentation/ex1.md"
+                }
+            ]
+        }
+    ]
+}
