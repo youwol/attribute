@@ -71,47 +71,50 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">df</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DataFrame</span><span style="color: #000000">({</span>
-<span style="color: #000000">    </span><span style="color: #001080">positions:</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">( {</span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">30</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">+</span><span style="color: #098658">1</span><span style="color: #000000"> ),  </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">3</span><span style="color: #000000">} ),</span>
-<span style="color: #000000">    </span><span style="color: #001080">a        :</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">( {</span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">10</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">**</span><span style="color: #098658">2</span><span style="color: #000000"> ), </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">} ),</span>
-<span style="color: #000000">    </span><span style="color: #001080">U        :</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">( {</span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">30</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">+</span><span style="color: #098658">2</span><span style="color: #000000"> ),  </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">3</span><span style="color: #000000">} ),</span>
-<span style="color: #000000">    </span><span style="color: #001080">S        :</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">( {</span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">60</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">+</span><span style="color: #098658">3</span><span style="color: #000000"> ),  </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">6</span><span style="color: #000000">} )</span>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createSerie</span><span style="color: #000000">, </span><span style="color: #001080">DataFrame</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@youwol/dataframe&#039;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">AttributeManager</span><span style="color: #000000">, </span><span style="color: #001080">PositionDecompositor</span><span style="color: #000000">, </span>
+<span style="color: #000000">    </span><span style="color: #001080">EigenValuesDecompositor</span><span style="color: #000000">, </span><span style="color: #001080">EigenVectorsDecompositor</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;../lib/decompose&#039;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">df</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">DataFrame</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">positions:</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">( {</span>
+<span style="color: #000000">        </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">30</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">+</span><span style="color: #098658">1</span><span style="color: #000000"> ),</span>
+<span style="color: #000000">        </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">3</span>
+<span style="color: #000000">    }),</span>
+<span style="color: #000000">    </span><span style="color: #001080">a:</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">10</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">**</span><span style="color: #098658">2</span><span style="color: #000000"> ),</span>
+<span style="color: #000000">        </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">1</span>
+<span style="color: #000000">    }),</span>
+<span style="color: #000000">    </span><span style="color: #001080">U:</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">30</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">+</span><span style="color: #098658">2</span><span style="color: #000000"> ),</span>
+<span style="color: #000000">        </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">3</span>
+<span style="color: #000000">    }),</span>
+<span style="color: #000000">    </span><span style="color: #001080">S:</span><span style="color: #000000"> </span><span style="color: #795E26">createSerie</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">data:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">Array</span><span style="color: #000000">(</span><span style="color: #098658">60</span><span style="color: #000000">).</span><span style="color: #795E26">fill</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">v</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">i</span><span style="color: #000000">+</span><span style="color: #098658">3</span><span style="color: #000000"> ),</span>
+<span style="color: #000000">        </span><span style="color: #001080">itemSize:</span><span style="color: #000000"> </span><span style="color: #098658">6</span>
+<span style="color: #000000">    })</span>
 <span style="color: #000000">})</span>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">names</span><span style="color: #000000"> =  </span><span style="color: #795E26">getNames</span><span style="color: #000000">(</span><span style="color: #001080">df</span><span style="color: #000000">, </span><span style="color: #001080">Type</span><span style="color: #000000">.</span><span style="color: #001080">Scalar</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">mng</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AttributeManager</span><span style="color: #000000">(</span><span style="color: #001080">df</span><span style="color: #000000">)</span>
+<span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">( </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">PositionDecompositor</span><span style="color: #000000">)</span>
+<span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">( </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">ComponentDecompositor</span><span style="color: #000000"> )</span>
+<span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">( </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">EigenValuesDecompositor</span><span style="color: #000000">)</span>
+<span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">( </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">EigenVectorDecompositor</span><span style="color: #000000">)</span>
 
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">names</span><span style="color: #000000"> )</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #795E26">getSerie</span><span style="color: #000000">(</span><span style="color: #001080">df</span><span style="color: #000000">, </span><span style="color: #001080">Type</span><span style="color: #000000">.</span><span style="color: #001080">Scalar</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;x&#039;</span><span style="color: #000000">) )</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #795E26">getSerie</span><span style="color: #000000">(</span><span style="color: #001080">df</span><span style="color: #000000">, </span><span style="color: #001080">Type</span><span style="color: #000000">.</span><span style="color: #001080">Vector3</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;U&#039;</span><span style="color: #000000">) )</span>
-</code></pre>
-				<p>Should display</p>
-				<pre><code class="language-sh"><span style="color: #000000">[  </span><span style="color: #A31515">&#039;x&#039;</span><span style="color: #000000">,   </span><span style="color: #A31515">&#039;y&#039;</span><span style="color: #000000">,   </span><span style="color: #A31515">&#039;z&#039;</span><span style="color: #000000">,   </span><span style="color: #A31515">&#039;a&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #A31515">&#039;id&#039;</span><span style="color: #000000">,  </span><span style="color: #A31515">&#039;U&#039;</span><span style="color: #000000">,   </span><span style="color: #A31515">&#039;Ux&#039;</span><span style="color: #000000">,  </span><span style="color: #A31515">&#039;Uy&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #A31515">&#039;Uz&#039;</span><span style="color: #000000">,  </span><span style="color: #A31515">&#039;Sxx&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Sxy&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Sxz&#039;</span><span style="color: #000000">,</span>
-<span style="color: #000000">    </span><span style="color: #A31515">&#039;Syy&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Syz&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Szz&#039;</span>
-<span style="color: #000000">]</span>
-</code></pre>
-				<pre><code class="language-sh"><span style="color: #000000">Serie {</span>
-<span style="color: #000000">    array: [</span>
-<span style="color: #000000">        1,  4,  7, 10, 13,</span>
-<span style="color: #000000">    16, 19, 22, 25, 28</span>
-<span style="color: #000000">    ],</span>
-<span style="color: #000000">    itemSize: 1,</span>
-<span style="color: #000000">    shared: false,</span>
-<span style="color: #000000">    name_: </span><span style="color: #A31515">&#039;x&#039;</span>
-<span style="color: #000000">}</span>
-</code></pre>
-				<pre><code class="language-sh"><span style="color: #000000">Serie {</span>
-<span style="color: #000000">    array: [</span>
-<span style="color: #000000">        1,  2,  3,  4,  5,  6,  7,  8,  9,</span>
-<span style="color: #000000">    10, 11, 12, 13, 14, 15, 16, 17, 18,</span>
-<span style="color: #000000">    19, 20, 21, 22, 23, 24, 25, 26, 27,</span>
-<span style="color: #000000">    28, 29, 30</span>
-<span style="color: #000000">    ],</span>
-<span style="color: #000000">    itemSize: 3,</span>
-<span style="color: #000000">    shared: false,</span>
-<span style="color: #000000">    name_: </span><span style="color: #A31515">&#039;U&#039;</span>
-<span style="color: #000000">}</span>
+<span style="color: #008000">// [&#039;x&#039;,&#039;y&#039;,&#039;z&#039;,&#039;a&#039;,&#039;Ux&#039;,&#039;Uy&#039;,&#039;Uz&#039;,&#039;Sxx&#039;,&#039;Sxy&#039;,&#039;Sxz&#039;,&#039;Syy&#039;,&#039;Syz&#039;,&#039;Szz&#039;, &#039;S1&#039;, &#039;S2&#039;, &#039;S3&#039;]</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">) ) </span>
+
+<span style="color: #008000">// [&#039;positions&#039;,&#039;U&#039;]</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">3</span><span style="color: #000000">) )</span>
+
+<span style="color: #008000">// [&#039;S&#039;]</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">6</span><span style="color: #000000">) )</span>
+
+<span style="color: #008000">// []</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">9</span><span style="color: #000000">) )</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">serie</span><span style="color: #000000"> = </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">serie</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;x&#039;</span><span style="color: #000000">)</span>
 </code></pre>
 			</div>
 		</div>
@@ -123,6 +126,9 @@
 					</li>
 					<li class="current pp-nav pp-page">
 						<a href="ex1.html">Usage</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="ex2.html">Create decompositor</a>
 					</li>
 					<li class="label pp-nav pp-group">
 						<span>API</span>
@@ -143,6 +149,16 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>

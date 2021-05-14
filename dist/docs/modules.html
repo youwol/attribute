@@ -69,81 +69,23 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumerations</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum"><a href="enums/type.html" class="tsd-kind-icon">Type</a></li>
+								<li class="tsd-kind-class"><a href="classes/attributemanager.html" class="tsd-kind-icon">Attribute<wbr>Manager</a></li>
+								<li class="tsd-kind-class"><a href="classes/componentdecompositor.html" class="tsd-kind-icon">Component<wbr>Decompositor</a></li>
+								<li class="tsd-kind-class"><a href="classes/eigenvaluesdecompositor.html" class="tsd-kind-icon">Eigen<wbr>Values<wbr>Decompositor</a></li>
+								<li class="tsd-kind-class"><a href="classes/eigenvectorsdecompositor.html" class="tsd-kind-icon">Eigen<wbr>Vectors<wbr>Decompositor</a></li>
+								<li class="tsd-kind-class"><a href="classes/positiondecompositor.html" class="tsd-kind-icon">Position<wbr>Decompositor</a></li>
+								<li class="tsd-kind-class"><a href="classes/vectornormdecompositor.html" class="tsd-kind-icon">Vector<wbr>Norm<wbr>Decompositor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function"><a href="modules.html#getnames" class="tsd-kind-icon">get<wbr>Names</a></li>
-								<li class="tsd-kind-function"><a href="modules.html#getserie" class="tsd-kind-icon">get<wbr>Serie</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/decompositor.html" class="tsd-kind-icon">Decompositor</a></li>
 							</ul>
 						</section>
 					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="getnames" class="tsd-anchor"></a>
-					<h3>get<wbr>Names</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Names<span class="tsd-signature-symbol">(</span>df<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DataFrame</span>, type<span class="tsd-signature-symbol">: </span><a href="enums/type.html" class="tsd-signature-type">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get all decomposed names from a DataFrame of a given type</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>df: <span class="tsd-signature-type">DataFrame</span></h5>
-								</li>
-								<li>
-									<h5>type: <a href="enums/type.html" class="tsd-signature-type">Type</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function">
-					<a name="getserie" class="tsd-anchor"></a>
-					<h3>get<wbr>Serie</h3>
-					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Serie<span class="tsd-signature-symbol">(</span>df<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DataFrame</span>, type<span class="tsd-signature-symbol">: </span><a href="enums/type.html" class="tsd-signature-type">Type</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ASerie</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get a named serie of a given type using existing method of decomposition</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>df: <span class="tsd-signature-type">DataFrame</span></h5>
-								</li>
-								<li>
-									<h5>type: <a href="enums/type.html" class="tsd-signature-type">Type</a></h5>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ASerie</span></h4>
-						</li>
-					</ul>
 				</section>
 			</section>
 		</div>
@@ -156,6 +98,9 @@
 					<li class=" pp-nav pp-page">
 						<a href="pages/Examples/ex1.html">Usage</a>
 					</li>
+					<li class=" pp-nav pp-page">
+						<a href="pages/Examples/ex2.html">Create decompositor</a>
+					</li>
 					<li class="label pp-nav pp-group">
 						<span>API</span>
 					</li>
@@ -166,14 +111,26 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="enums/type.html" class="tsd-kind-icon">Type</a>
+					<li class=" tsd-kind-class">
+						<a href="classes/attributemanager.html" class="tsd-kind-icon">Attribute<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#getnames" class="tsd-kind-icon">get<wbr>Names</a>
+					<li class=" tsd-kind-class">
+						<a href="classes/componentdecompositor.html" class="tsd-kind-icon">Component<wbr>Decompositor</a>
 					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#getserie" class="tsd-kind-icon">get<wbr>Serie</a>
+					<li class=" tsd-kind-class">
+						<a href="classes/eigenvaluesdecompositor.html" class="tsd-kind-icon">Eigen<wbr>Values<wbr>Decompositor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/eigenvectorsdecompositor.html" class="tsd-kind-icon">Eigen<wbr>Vectors<wbr>Decompositor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/positiondecompositor.html" class="tsd-kind-icon">Position<wbr>Decompositor</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/vectornormdecompositor.html" class="tsd-kind-icon">Vector<wbr>Norm<wbr>Decompositor</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/decompositor.html" class="tsd-kind-icon">Decompositor</a>
 					</li>
 				</ul>
 			</nav>
@@ -184,6 +141,16 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>

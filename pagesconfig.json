@@ -6,6 +6,10 @@
                 {
                     "title": "Usage",
                     "source": "./documentation/ex1.md"
+                },
+                {
+                    "title": "Create decompositor",
+                    "source": "./documentation/ex2.md"
                 }
             ]
         }
