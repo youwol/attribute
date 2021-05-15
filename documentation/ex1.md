@@ -30,17 +30,26 @@ mng.add( new ComponentDecompositor )
 mng.add( new EigenValuesDecompositor)
 mng.add( new EigenVectorDecompositor)
 
-// ['x','y','z','a','Ux','Uy','Uz','Sxx','Sxy','Sxz','Syy','Syz','Szz', 'S1', 'S2', 'S3']
-console.log( mng.names(1) ) 
+// ['x','y','z',
+//  'a',
+//  'Ux','Uy','Uz',
+//  'Sxx','Sxy','Sxz','Syy', 'Syz','Szz',
+//  'S1', 'S2', 'S3'
+// ]
+console.log( mng.names(1) ) // itemSize=1
 
-// ['positions','U']
-console.log( mng.names(3) )
+// ['positions','U', 'S1', 'S2', 'S3']
+console.log( mng.names(3) ) // itemSize=3
 
 // ['S']
-console.log( mng.names(6) )
+console.log( mng.names(6) ) // itemSize=6
 
-// []
-console.log( mng.names(9) )
+// [] nothing...
+console.log( mng.names(9) ) // itemSize=9
 
-const serie = mng.serie(1, 'x')
+const serie = mng.serie(1, 'S1')
+console.assert( serie !== undefined )
+
+const serie = mng.serie(3, 'S1')
+console.assert( serie !== undefined )
 ```

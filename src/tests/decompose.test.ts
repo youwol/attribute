@@ -1,18 +1,20 @@
 import { createSerie, DataFrame } from '@youwol/dataframe'
-import { PositionDecompositor, AttributeManager, EigenValuesDecompositor, ComponentDecompositor } from '../lib/decompose'
+import { PositionDecompositor, EigenValuesDecompositor, ComponentDecompositor, EigenVectorsDecompositor, NormalsDecompositor } from '../lib/decompose'
+import { AttributeManager } from '../lib/manager'
 
 test('test 1 on AttributeManager', () => {
     const df = new DataFrame({
-        positions: createSerie( {data: new Array(30).fill(0).map( (v,i) => i+1 ), itemSize: 3} ),
-        a        : createSerie( {data: new Array(10).fill(0).map( (v,i) => i**2 ), itemSize: 1}),
-        U        : createSerie( {data: new Array(30).fill(0).map( (v,i) => i+2 ), itemSize: 3} ),
-        S        : createSerie( {data: new Array(60).fill(0).map( (v,i) => i+3 ), itemSize: 6} )
+        positions: createSerie( {data: [1,2,3, 4,5,6], itemSize: 3} ),
+        a        : createSerie( {data: [4,9], itemSize: 1}),
+        U        : createSerie( {data: [6,5,4, 3,2,1], itemSize: 3} ),
+        S        : createSerie( {data: [10,11,12,13,14,15, 16,17,18,19,20,21], itemSize: 6} )
     })
 
-    const mng = new AttributeManager(df)
-    mng.add( new PositionDecompositor)
-    mng.add( new ComponentDecompositor )
-
+    const mng = new AttributeManager(df, [
+        new PositionDecompositor, 
+        new ComponentDecompositor
+    ])
+    
     const sol = [
         [ 'x',   'y',   'z', 'a',  'Ux', 'Uy',  'Uz',  'Sxx', 'Sxy', 'Sxz', 'Syy', 'Syz', 'Szz' ],
         [ 'positions', 'U' ],
@@ -22,54 +24,69 @@ test('test 1 on AttributeManager', () => {
     const sizes = [1, 3, 6, 9]
     sizes.forEach( (size,i) => expect(mng.names(size)).toEqual(sol[i]) )
 
-    const itemSize = 1
-    const names = mng.names( itemSize )
-    names.forEach( name => console.log(name, mng.serie(itemSize, name)) )
+    let names = mng.names(1)
+    expect(mng.serie(1, 'x').array).toEqual([1,4])
+    expect(mng.serie(1, 'y').array).toEqual([2,5])
+    expect(mng.serie(1, 'z').array).toEqual([3,6])
+    expect(mng.serie(1, 'a').array).toEqual([4,9])
+    expect(mng.serie(1, 'Ux').array).toEqual([6,3])
+    expect(mng.serie(1, 'Uy').array).toEqual([5,2])
+    expect(mng.serie(1, 'Uz').array).toEqual([4,1])
+    expect(mng.serie(1, 'Sxx').array).toEqual([10,16])
+    expect(mng.serie(1, 'Sxy').array).toEqual([11,17])
+    expect(mng.serie(1, 'Sxz').array).toEqual([12,18])
+    expect(mng.serie(1, 'Syy').array).toEqual([13,19])
+    expect(mng.serie(1, 'Syz').array).toEqual([14,20])
+    expect(mng.serie(1, 'Szz').array).toEqual([15,21])
+
+
+    expect(mng.names(3)).toEqual(['positions', 'U'])
+    expect(mng.serie(3, 'positions').array).toEqual([ 1, 2, 3, 4, 5, 6 ])
+    expect(mng.serie(3, 'U').array).toEqual([ 6, 5, 4, 3, 2, 1 ])
+
+    expect(mng.names(6)).toEqual(['S'])
+    expect(mng.serie(6, 'S').array).toEqual([10,11,12,13,14,15,16,17,18,19,20,21])
 })
 
 test('test 2 on AttributeManager', () => {
     const df = new DataFrame({
-        U        : createSerie( {data: new Array(30).fill(0).map( (v,i) => i+2 ), itemSize: 3} ),
-        S        : createSerie( {data: new Array(60).fill(0).map( (v,i) => i+3 ), itemSize: 6} )
+        U: createSerie( {data: [6,5,4, 3,2,1], itemSize: 3} ),
+        S: createSerie( {data: [10,11,12,13,14,15, 16,17,18,19,20,21], itemSize: 6} )
     })
 
-    const mng = new AttributeManager(df)
-    mng.add( new PositionDecompositor)
-    mng.add( new ComponentDecompositor )
-    mng.add( new EigenValuesDecompositor)
+    const mng = new AttributeManager(df, [
+        new PositionDecompositor, // does nothing since 'positions' serie does not exist
+        new ComponentDecompositor,
+        new EigenValuesDecompositor,
+        new EigenVectorsDecompositor
+    ])
+    
+    const sol1 = [ 'Ux', 'Uy',  'Uz',  'Sxx', 'Sxy', 'Sxz', 'Syy', 'Syz', 'Szz', 'S1', 'S2', 'S3' ]
+    expect(mng.names(1)).toEqual(sol1)
 
-    const sol = [ 'Ux', 'Uy',  'Uz',  'Sxx', 'Sxy', 'Sxz', 'Syy', 'Syz', 'Szz', 'S1', 'S2', 'S3' ]
-    console.log( mng.names(1) )
-    expect(mng.names(1)).toEqual(sol)
+    const sol3 = [ 'U', 'S1', 'S2', 'S3' ]
+    expect(mng.names(3)).toEqual(sol3)
 
-    console.log( mng.serie(1, 'S1') )
+    expect(mng.serie(1, 'S1').array[0]).toBeCloseTo(37.627222642320596)
+    expect(mng.serie(1, 'S1').array[1]).toBeCloseTo(55.53147275348018)
+
+    expect(mng.serie(1, 'S2').array[0]).toBeCloseTo(0.43401186298916355)
+    expect(mng.serie(1, 'S2').array[1]).toBeCloseTo(0.5042400105196401)
+
+    expect(mng.serie(1, 'S3').array[0]).toBeCloseTo(-0.061234505309754744)
+    expect(mng.serie(1, 'S3').array[1]).toBeCloseTo(-0.03571276399982312)
 })
 
+test('test normals on AttributeManager', () => {
+    const df = new DataFrame({
+        positions: createSerie( {data: [0,0,0, 1,0,0, 1,1,0], itemSize: 3} ),
+        indices  : createSerie( {data: [0,1,2], itemSize: 3} )
+    })
 
-// test('"decompose" on dataframe', () => {
-//     const df = new DataFrame({
-//         positions: createSerie( {data: new Array(30).fill(0).map( (v,i) => i+1 ), itemSize: 3} ),
-//         a        : createSerie( {data: new Array(10).fill(0).map( (v,i) => i**2 ), itemSize: 1}),
-//         U        : createSerie( {data: new Array(30).fill(0).map( (v,i) => i+2 ), itemSize: 3} ),
-//         S        : createSerie( {data: new Array(60).fill(0).map( (v,i) => i+3 ), itemSize: 6} )
-//     })
-
+    const mng = new AttributeManager(df, [
+        new NormalsDecompositor('n')
+    ])
     
-//     const names =  getNames(df, Type.Scalar)
-//     console.log(names)
-
-//     const sol = [
-//         'x',   'y',   'z',
-//         'a',
-//         //'id', 
-//         'U',   'Ux',  'Uy',  'Uz',
-//         'Sxx', 'Sxy', 'Sxz', 'Syy', 'Syz', 'Szz'
-//     ]
-//     expect(sol).toEqual(names)
-
-//     names.forEach( name => {
-//         //console.log(name, getSerie(df, Type.Scalar, name) )
-//         expect(getSerie(df, Type.Scalar, name)).toBeDefined()
-//     })
-// })
-
+    expect(mng.names(3)).toEqual(['positions', 'n', 'indices'])
+    expect(mng.serie(3, 'n').array).toEqual([0,0,1])
+})

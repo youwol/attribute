@@ -4,7 +4,7 @@ import { DataFrame, ASerie } from '@youwol/dataframe'
 import { norm } from '@youwol/math'
 
 class VectorNormDecompositor implements Decompositor {
-    names(itemSize: number, serie: ASerie, name: string) {
+    names(df: DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (serie.itemSize!==3 || itemSize!==1) return []
         return [name] // same name as the vector3 but willbe a scalar (itemSier=1)
     }

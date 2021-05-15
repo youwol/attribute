@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Usage | @youwol/attribute - v0.0.0</title>
-	<meta name="description" content="Documentation for @youwol/attribute - v0.0.0">
+	<title>Usage | @youwol/attribute - v0.0.1</title>
+	<meta name="description" content="Documentation for @youwol/attribute - v0.0.1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../../assets/css/main.css">
 	<link rel="stylesheet" href="../../assets/css/pages.css">
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../../index.html" class="title">@youwol/attribute - v0.0.0</a>
+					<a href="../../index.html" class="title">@youwol/attribute - v0.0.1</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -102,19 +102,28 @@
 <span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">( </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">EigenValuesDecompositor</span><span style="color: #000000">)</span>
 <span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">add</span><span style="color: #000000">( </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">EigenVectorDecompositor</span><span style="color: #000000">)</span>
 
-<span style="color: #008000">// [&#039;x&#039;,&#039;y&#039;,&#039;z&#039;,&#039;a&#039;,&#039;Ux&#039;,&#039;Uy&#039;,&#039;Uz&#039;,&#039;Sxx&#039;,&#039;Sxy&#039;,&#039;Sxz&#039;,&#039;Syy&#039;,&#039;Syz&#039;,&#039;Szz&#039;, &#039;S1&#039;, &#039;S2&#039;, &#039;S3&#039;]</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">) ) </span>
+<span style="color: #008000">// [&#039;x&#039;,&#039;y&#039;,&#039;z&#039;,</span>
+<span style="color: #008000">//  &#039;a&#039;,</span>
+<span style="color: #008000">//  &#039;Ux&#039;,&#039;Uy&#039;,&#039;Uz&#039;,</span>
+<span style="color: #008000">//  &#039;Sxx&#039;,&#039;Sxy&#039;,&#039;Sxz&#039;,&#039;Syy&#039;, &#039;Syz&#039;,&#039;Szz&#039;,</span>
+<span style="color: #008000">//  &#039;S1&#039;, &#039;S2&#039;, &#039;S3&#039;</span>
+<span style="color: #008000">// ]</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">) ) </span><span style="color: #008000">// itemSize=1</span>
 
-<span style="color: #008000">// [&#039;positions&#039;,&#039;U&#039;]</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">3</span><span style="color: #000000">) )</span>
+<span style="color: #008000">// [&#039;positions&#039;,&#039;U&#039;, &#039;S1&#039;, &#039;S2&#039;, &#039;S3&#039;]</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">3</span><span style="color: #000000">) ) </span><span style="color: #008000">// itemSize=3</span>
 
 <span style="color: #008000">// [&#039;S&#039;]</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">6</span><span style="color: #000000">) )</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">6</span><span style="color: #000000">) ) </span><span style="color: #008000">// itemSize=6</span>
 
-<span style="color: #008000">// []</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">9</span><span style="color: #000000">) )</span>
+<span style="color: #008000">// [] nothing...</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">( </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">names</span><span style="color: #000000">(</span><span style="color: #098658">9</span><span style="color: #000000">) ) </span><span style="color: #008000">// itemSize=9</span>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">serie</span><span style="color: #000000"> = </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">serie</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;x&#039;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">serie</span><span style="color: #000000"> = </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">serie</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;S1&#039;</span><span style="color: #000000">)</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">assert</span><span style="color: #000000">( </span><span style="color: #001080">serie</span><span style="color: #000000"> !== </span><span style="color: #0000FF">undefined</span><span style="color: #000000"> )</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">serie</span><span style="color: #000000"> = </span><span style="color: #001080">mng</span><span style="color: #000000">.</span><span style="color: #795E26">serie</span><span style="color: #000000">(</span><span style="color: #098658">3</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;S1&#039;</span><span style="color: #000000">)</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">assert</span><span style="color: #000000">( </span><span style="color: #001080">serie</span><span style="color: #000000"> !== </span><span style="color: #0000FF">undefined</span><span style="color: #000000"> )</span>
 </code></pre>
 			</div>
 		</div>
