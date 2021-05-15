@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NormalsDecompositor | @youwol/attribute - v0.0.2</title>
+	<title>FunctionalDecompositor | @youwol/attribute - v0.0.2</title>
 	<meta name="description" content="Documentation for @youwol/attribute - v0.0.2">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="normalsdecompositor.html">NormalsDecompositor</a>
+					<a href="functionaldecompositor.html">FunctionalDecompositor</a>
 				</li>
 			</ul>
-			<h1>Class NormalsDecompositor</h1>
+			<h1>Class FunctionalDecompositor</h1>
 		</div>
 	</div>
 </header>
@@ -70,15 +70,35 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Get normals to the triangles of a mesh</p>
+						<p>User define attribute based on a DataFrame</p>
 					</div>
+					<dl class="tsd-comment-tags">
+						<dt>example</dt>
+						<dd><pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">mng</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AttributeManager</span><span style="color: #000000">(</span><span style="color: #001080">df</span><span style="color: #000000">, [</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">FunctionalDecompositor</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;MyAttr&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">df</span><span style="color: #000000">: </span><span style="color: #267F99">DataFrame</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">fct</span><span style="color: #000000"> = </span><span style="color: #001080">p</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">p</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">]**</span><span style="color: #098658">2</span><span style="color: #000000"> - </span><span style="color: #001080">p</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">]***</span><span style="color: #098658">3</span><span style="color: #000000"> + </span><span style="color: #267F99">Math</span><span style="color: #000000">.</span><span style="color: #795E26">abs</span><span style="color: #000000">(</span><span style="color: #001080">p</span><span style="color: #000000">[</span><span style="color: #098658">2</span><span style="color: #000000">])</span>
+<span style="color: #000000">        </span><span style="color: #001080">df</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;positions&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( </span><span style="color: #001080">p</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #795E26">fct</span><span style="color: #000000">(</span><span style="color: #001080">p</span><span style="color: #000000">) )</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">])</span>
+</code></pre>
+						</dd>
+						<dt>example</dt>
+						<dd><pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">mng</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AttributeManager</span><span style="color: #000000">(</span><span style="color: #001080">df</span><span style="color: #000000">, [</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">FunctionalDecompositor</span><span style="color: #000000">(</span><span style="color: #098658">3</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;zscaled&#039;</span><span style="color: #000000">, (</span><span style="color: #001080">df</span><span style="color: #000000">: </span><span style="color: #267F99">DataFrame</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">scale</span><span style="color: #000000"> = </span><span style="color: #098658">10</span>
+<span style="color: #000000">        </span><span style="color: #001080">df</span><span style="color: #000000">.</span><span style="color: #795E26">get</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;positions&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">map</span><span style="color: #000000">( (</span><span style="color: #001080">p</span><span style="color: #000000">,</span><span style="color: #001080">i</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> [</span><span style="color: #001080">p</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">], </span><span style="color: #001080">p</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">], </span><span style="color: #001080">p</span><span style="color: #000000">[</span><span style="color: #098658">2</span><span style="color: #000000">]*</span><span style="color: #001080">scale</span><span style="color: #000000">] )</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">])</span>
+</code></pre>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">NormalsDecompositor</span>
+						<span class="target">FunctionalDecompositor</span>
 					</li>
 				</ul>
 			</section>
@@ -95,14 +115,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="normalsdecompositor.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="functionaldecompositor.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="functionaldecompositor.html#fct" class="tsd-kind-icon">fct</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="functionaldecompositor.html#itemsize" class="tsd-kind-icon">item<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="functionaldecompositor.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="normalsdecompositor.html#names" class="tsd-kind-icon">names</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="normalsdecompositor.html#serie" class="tsd-kind-icon">serie</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="functionaldecompositor.html#names" class="tsd-kind-icon">names</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="functionaldecompositor.html#serie" class="tsd-kind-icon">serie</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,21 +142,67 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Normals<wbr>Decompositor<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="normalsdecompositor.html" class="tsd-signature-type">NormalsDecompositor</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Functional<wbr>Decompositor<span class="tsd-signature-symbol">(</span>itemSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, fct<span class="tsd-signature-symbol">: </span><a href="../modules.html#functional" class="tsd-signature-type">Functional</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="functionaldecompositor.html" class="tsd-signature-type">FunctionalDecompositor</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="../modules.html#functional">Functional</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>name: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;normals&#x27;</span></h5>
+									<h5>itemSize: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The item size of the attribute</p>
+									</div>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the atribute</p>
+									</div>
+								</li>
+								<li>
+									<h5>fct: <a href="../modules.html#functional" class="tsd-signature-type">Functional</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The fonctional</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="normalsdecompositor.html" class="tsd-signature-type">NormalsDecompositor</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="functionaldecompositor.html" class="tsd-signature-type">FunctionalDecompositor</a></h4>
 						</li>
 					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="fct" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> fct</h3>
+					<div class="tsd-signature tsd-kind-icon">fct<span class="tsd-signature-symbol">:</span> <a href="../modules.html#functional" class="tsd-signature-type">Functional</a></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="itemsize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> item<wbr>Size</h3>
+					<div class="tsd-signature tsd-kind-icon">item<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -233,27 +307,36 @@
 					<li class=" tsd-kind-class">
 						<a href="eigenvectorsdecompositor.html" class="tsd-kind-icon">Eigen<wbr>Vectors<wbr>Decompositor</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="functionaldecompositor.html" class="tsd-kind-icon">Functional<wbr>Decompositor</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="normalsdecompositor.html" class="tsd-kind-icon">Normals<wbr>Decompositor</a>
+						<a href="functionaldecompositor.html" class="tsd-kind-icon">Functional<wbr>Decompositor</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="normalsdecompositor.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="functionaldecompositor.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="functionaldecompositor.html#fct" class="tsd-kind-icon">fct</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="functionaldecompositor.html#itemsize" class="tsd-kind-icon">item<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="functionaldecompositor.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="normalsdecompositor.html#names" class="tsd-kind-icon">names</a>
+								<a href="functionaldecompositor.html#names" class="tsd-kind-icon">names</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="normalsdecompositor.html#serie" class="tsd-kind-icon">serie</a>
+								<a href="functionaldecompositor.html#serie" class="tsd-kind-icon">serie</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="normalsdecompositor.html" class="tsd-kind-icon">Normals<wbr>Decompositor</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="positiondecompositor.html" class="tsd-kind-icon">Position<wbr>Decompositor</a>
 					</li>

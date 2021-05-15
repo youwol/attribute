@@ -9,6 +9,7 @@ export class NormalsDecompositor implements Decompositor {
     constructor(private readonly name: string = 'normals') {
     }
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
+        if (itemSize !== 3) return []
         if (!df.constains('positions') && !df.constains('indices')) return []
         return [this.name]
     }

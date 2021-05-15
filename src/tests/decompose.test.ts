@@ -1,5 +1,6 @@
 import { createSerie, DataFrame } from '@youwol/dataframe'
 import { PositionDecompositor, EigenValuesDecompositor, ComponentDecompositor, EigenVectorsDecompositor, NormalsDecompositor } from '../lib/decompose'
+import { FunctionalDecompositor } from '../lib/decompose/FunctionalDecompositor'
 import { AttributeManager } from '../lib/manager'
 
 test('test 1 on AttributeManager', () => {
@@ -89,4 +90,22 @@ test('test normals on AttributeManager', () => {
     
     expect(mng.names(3)).toEqual(['positions', 'n', 'indices'])
     expect(mng.serie(3, 'n').array).toEqual([0,0,1])
+})
+
+test('test functional on AttributeManager', () => {
+    const df = new DataFrame({
+        positions: createSerie( {data: [1,2,3, 1,4,3, 7,2,5], itemSize: 3} ),
+    })
+
+    const mng = new AttributeManager(df, [
+        new FunctionalDecompositor(1, 'f', (df: DataFrame) => {
+            const fct = (x,y,z) => x**2-y**3+Math.abs(z)
+            const positions = df.get('positions')
+            return positions.map( p => fct(p[0], p[1], p[2]) )
+        })
+    ])
+
+    const fct = (x,y,z) => x**2-y**3+Math.abs(z)
+    expect(mng.serie(1, 'f').array).toEqual( [fct(1,2,3), fct(1,4,3), fct(7,2,5)] )
+    expect(mng.serie(1, 'f').name).toEqual('f')
 })
