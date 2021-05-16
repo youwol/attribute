@@ -1,11 +1,11 @@
 import { ASerie, DataFrame } from "@youwol/dataframe"
 import { vec } from "@youwol/math"
-import { Decompositor } from "../decompositor"
+import { Decomposer } from "../decomposer"
 
 /**
  * Get normals to the triangles of a mesh
  */
-export class NormalsDecompositor implements Decompositor {
+export class NormalsDecomposer implements Decomposer {
     constructor(private readonly name: string = 'normals') {
     }
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {

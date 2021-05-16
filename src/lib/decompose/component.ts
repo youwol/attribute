@@ -1,5 +1,5 @@
 import { apply, ASerie, DataFrame } from "@youwol/dataframe"
-import { Decompositor } from "../decompositor"
+import { Decomposer } from "../decomposer"
 
 /**
  * Allows to get components of serie for which itemSize > 1. For instance,
@@ -7,7 +7,7 @@ import { Decompositor } from "../decompositor"
  * `Ux`, `Uy` and `Uz`. The sam applies for smatrix3 and matrix3 (appended `xx`...).
  * For all other series, index number are appended to the serie's name, srating at zero.
  */
- export class ComponentDecompositor implements Decompositor {
+ export class ComponentDecomposer implements Decomposer {
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         // Passed name is, e.g., 'U' and itemSize=3
         if (name===serie.name && serie.itemSize===1) return []

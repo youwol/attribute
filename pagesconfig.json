@@ -1,6 +1,15 @@
 {
     "groups": [
         {
+            "title": "Info",
+            "pages": [
+                {
+                    "title": "Todo",
+                    "source": "./documentation/todo.md"
+                }
+            ]
+        },
+        {
             "title": "Examples",
             "pages": [
                 {

@@ -1,11 +1,11 @@
 import { ASerie, DataFrame } from "@youwol/dataframe"
 import { norm } from '@youwol/math'
-import { Decompositor } from "../decompositor"
+import { Decomposer } from "../decomposer"
 
 /**
  * Get the norm of any serie with itemSize > 1 (i.e., norm of any vector)
  */
- export class VectorNormDecompositor implements Decompositor {
+ export class VectorNormDecomposer implements Decomposer {
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (serie.itemSize<=1 || itemSize!==1) return []
         return [name] // same name as the vector but willbe a scalar (itemSize=1)

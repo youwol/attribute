@@ -1,11 +1,11 @@
 import { apply, ASerie, DataFrame } from "@youwol/dataframe"
 import { eigenValue, eigenVector } from '@youwol/math'
-import { Decompositor } from "../decompositor"
+import { Decomposer } from "../decomposer"
 
 /**
  * Eigen values for series with itemSize = 6
  */
- export class EigenValuesDecompositor implements Decompositor {
+ export class EigenValuesDecomposer implements Decomposer {
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (serie.itemSize!==6 || itemSize!==1) return []
         return [name+'1', name+'2', name+'3']
@@ -27,7 +27,7 @@ import { Decompositor } from "../decompositor"
 /**
  * Eigen vectors for series with itemSize = 6
  */
-export class EigenVectorsDecompositor implements Decompositor {
+export class EigenVectorsDecomposer implements Decomposer {
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (serie.itemSize!==6 || itemSize!==3) return []
         return [name+'1', name+'2', name+'3']

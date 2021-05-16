@@ -1,9 +1,10 @@
 Create a decompositor in order to have the norm of any vector3 series
 ```ts
 import { DataFrame, ASerie } from '@youwol/dataframe'
-import { norm } from '@youwol/math'
+import { norm }              from '@youwol/math'
+import { Decomposer }        from '@youwol/attribute'
 
-class VectorNormDecompositor implements Decompositor {
+class VectorNormDecomposer implements Decomposer {
     names(df: DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (serie.itemSize!==3 || itemSize!==1) return []
         return [name] // same name as the vector3 but willbe a scalar (itemSier=1)

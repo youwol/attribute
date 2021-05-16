@@ -1,5 +1,5 @@
 import { ASerie, DataFrame } from "@youwol/dataframe"
-import { Decompositor } from "../decompositor"
+import { Decomposer } from "../decomposer"
 
 export type Functional = {
     (df: DataFrame): ASerie
@@ -10,7 +10,7 @@ export type Functional = {
  * @example
  * ```ts
  * const mng = new AttributeManager(df, [
- *     new FunctionalDecompositor(1, 'MyAttr', (df: DataFrame) => {
+ *     new FunctionalDecomposer(1, 'MyAttr', (df: DataFrame) => {
  *         const fct = p => p[0]**2 - p[1]***3 + Math.abs(p[2])
  *         df.get('positions').map( p => fct(p) )
  *     })
@@ -19,14 +19,14 @@ export type Functional = {
  * @example
  * ```ts
  * const mng = new AttributeManager(df, [
- *     new FunctionalDecompositor(3, 'zscaled', (df: DataFrame) => {
+ *     new FunctionalDecomposer(3, 'zscaled', (df: DataFrame) => {
  *         const scale = 10
  *         df.get('positions').map( (p,i) => [p[0], p[1], p[2]*scale] )
  *     })
  * ])
  * ```
  */
-export class FunctionalDecompositor implements Decompositor {
+export class FunctionalDecomposer implements Decomposer {
     /**
      * 
      * @param itemSize The item size of the attribute

@@ -1,7 +1,11 @@
 import { createSerie, DataFrame } from '@youwol/dataframe'
-import { PositionDecompositor, EigenValuesDecompositor, ComponentDecompositor, EigenVectorsDecompositor, NormalsDecompositor } from '../lib/decompose'
-import { FunctionalDecompositor } from '../lib/decompose/FunctionalDecompositor'
 import { AttributeManager } from '../lib/manager'
+import { 
+    PositionDecomposer, EigenValuesDecomposer, 
+    ComponentDecomposer, EigenVectorsDecomposer, 
+    NormalsDecomposer, FunctionalDecomposer
+} from '../lib/decompose'
+
 
 test('test 1 on AttributeManager', () => {
     const df = new DataFrame({
@@ -12,8 +16,8 @@ test('test 1 on AttributeManager', () => {
     })
 
     const mng = new AttributeManager(df, [
-        new PositionDecompositor, 
-        new ComponentDecompositor
+        new PositionDecomposer, 
+        new ComponentDecomposer
     ])
     
     const sol = [
@@ -56,10 +60,10 @@ test('test 2 on AttributeManager', () => {
     })
 
     const mng = new AttributeManager(df, [
-        new PositionDecompositor, // does nothing since 'positions' serie does not exist
-        new ComponentDecompositor,
-        new EigenValuesDecompositor,
-        new EigenVectorsDecompositor
+        new PositionDecomposer, // does nothing since 'positions' serie does not exist
+        new ComponentDecomposer,
+        new EigenValuesDecomposer,
+        new EigenVectorsDecomposer
     ])
     
     const sol1 = [ 'Ux', 'Uy',  'Uz',  'Sxx', 'Sxy', 'Sxz', 'Syy', 'Syz', 'Szz', 'S1', 'S2', 'S3' ]
@@ -85,7 +89,7 @@ test('test normals on AttributeManager', () => {
     })
 
     const mng = new AttributeManager(df, [
-        new NormalsDecompositor('n')
+        new NormalsDecomposer('n')
     ])
     
     expect(mng.names(3)).toEqual(['positions', 'n', 'indices'])
@@ -98,7 +102,7 @@ test('test functional on AttributeManager', () => {
     })
 
     const mng = new AttributeManager(df, [
-        new FunctionalDecompositor(1, 'f', (df: DataFrame) => {
+        new FunctionalDecomposer(1, 'f', (df: DataFrame) => {
             const fct = (x,y,z) => x**2-y**3+Math.abs(z)
             const positions = df.get('positions')
             return positions.map( p => fct(p[0], p[1], p[2]) )

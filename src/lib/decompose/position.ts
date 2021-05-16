@@ -1,11 +1,11 @@
 import { apply, ASerie, DataFrame } from "@youwol/dataframe"
-import { Decompositor } from "../decompositor"
+import { Decomposer } from "../decomposer"
 
 /**
  * Make x, y and z coordinates accessible as serie if `position' is
  * present in the dataframe.
  */
- export class PositionDecompositor implements Decompositor {
+ export class PositionDecomposer implements Decomposer {
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (itemSize!==1 || name!=='positions') return []
         return ['x', 'y', 'z']

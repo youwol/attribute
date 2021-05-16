@@ -1,23 +1,23 @@
 import { DataFrame, ASerie } from '@youwol/dataframe'
-import { Decompositor } from './decompositor'
+import { Decomposer } from './decomposer'
 
 export class AttributeManager {
-    private ds_: Decompositor[] = []
+    private ds_: Decomposer[] = []
 
-    constructor(private readonly df: DataFrame, options: Decompositor[] = undefined) {
-        //this.ds_.push( new ComponentDecompositor )
+    constructor(private readonly df: DataFrame, options: Decomposer[] = undefined) {
+        //this.ds_.push( new ComponentDecomposer )
         if (options) this.ds_ = options
     }
 
     /**
-     * Add a new decompositor in this [[AttributeManager]]
+     * Add a new Decomposer in this [[AttributeManager]]
      */
-    add(d: Decompositor) {
+    add(d: Decomposer) {
         this.ds_.push(d)
     }
 
     /**
-     * Remove all registered decompositors from this manager
+     * Remove all registered decomposers from this manager
      */
     clear() {
         this.ds_ = []

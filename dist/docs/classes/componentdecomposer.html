@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>NormalsDecompositor | @youwol/attribute - v0.0.2</title>
-	<meta name="description" content="Documentation for @youwol/attribute - v0.0.2">
+	<title>ComponentDecomposer | @youwol/attribute - v0.0.4</title>
+	<meta name="description" content="Documentation for @youwol/attribute - v0.0.4">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<link rel="stylesheet" href="../assets/css/pages.css">
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@youwol/attribute - v0.0.2</a>
+					<a href="../index.html" class="title">@youwol/attribute - v0.0.4</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -57,10 +57,10 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="normalsdecompositor.html">NormalsDecompositor</a>
+					<a href="componentdecomposer.html">ComponentDecomposer</a>
 				</li>
 			</ul>
-			<h1>Class NormalsDecompositor</h1>
+			<h1>Class ComponentDecomposer</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,10 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Get normals to the triangles of a mesh</p>
+						<p>Allows to get components of serie for which itemSize &gt; 1. For instance,
+							for a serie named &#39;U&#39; with itemSize=3, components names will be
+							<code>Ux</code>, <code>Uy</code> and <code>Uz</code>. The sam applies for smatrix3 and matrix3 (appended <code>xx</code>...).
+						For all other series, index number are appended to the serie&#39;s name, srating at zero.</p>
 					</div>
 				</div>
 			</section>
@@ -78,14 +81,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">NormalsDecompositor</span>
+						<span class="target">ComponentDecomposer</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/decompositor.html" class="tsd-signature-type">Decompositor</a></li>
+					<li><a href="../interfaces/decomposer.html" class="tsd-signature-type">Decomposer</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -95,14 +98,14 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="normalsdecompositor.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="componentdecomposer.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="normalsdecompositor.html#names" class="tsd-kind-icon">names</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="normalsdecompositor.html#serie" class="tsd-kind-icon">serie</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="componentdecomposer.html#names" class="tsd-kind-icon">names</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="componentdecomposer.html#serie" class="tsd-kind-icon">serie</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,19 +117,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Normals<wbr>Decompositor<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="normalsdecompositor.html" class="tsd-signature-type">NormalsDecompositor</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Component<wbr>Decomposer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="componentdecomposer.html" class="tsd-signature-type">ComponentDecomposer</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &#x27;normals&#x27;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="normalsdecompositor.html" class="tsd-signature-type">NormalsDecompositor</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="componentdecomposer.html" class="tsd-signature-type">ComponentDecomposer</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -137,12 +134,12 @@
 					<a name="names" class="tsd-anchor"></a>
 					<h3>names</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">names<span class="tsd-signature-symbol">(</span>df<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DataFrame</span>, itemSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, serie<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ASerie</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">names<span class="tsd-signature-symbol">(</span>df<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DataFrame</span>, itemSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, serie<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ASerie</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/decompositor.html">Decompositor</a>.<a href="../interfaces/decompositor.html#names">names</a></p>
+								<p>Implementation of <a href="../interfaces/decomposer.html">Decomposer</a>.<a href="../interfaces/decomposer.html#names">names</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
@@ -164,7 +161,7 @@
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -177,7 +174,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/decompositor.html">Decompositor</a>.<a href="../interfaces/decompositor.html#serie">serie</a></p>
+								<p>Implementation of <a href="../interfaces/decomposer.html">Decomposer</a>.<a href="../interfaces/decomposer.html#serie">serie</a></p>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
@@ -206,6 +203,12 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="label pp-nav pp-group">
+						<span>Info</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../pages/Info/todo.html">Todo</a>
+					</li>
+					<li class="label pp-nav pp-group">
 						<span>Examples</span>
 					</li>
 					<li class=" pp-nav pp-page">
@@ -224,44 +227,44 @@
 					<li class=" tsd-kind-class">
 						<a href="attributemanager.html" class="tsd-kind-icon">Attribute<wbr>Manager</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="componentdecompositor.html" class="tsd-kind-icon">Component<wbr>Decompositor</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="eigenvaluesdecompositor.html" class="tsd-kind-icon">Eigen<wbr>Values<wbr>Decompositor</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="eigenvectorsdecompositor.html" class="tsd-kind-icon">Eigen<wbr>Vectors<wbr>Decompositor</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="functionaldecompositor.html" class="tsd-kind-icon">Functional<wbr>Decompositor</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="normalsdecompositor.html" class="tsd-kind-icon">Normals<wbr>Decompositor</a>
+						<a href="componentdecomposer.html" class="tsd-kind-icon">Component<wbr>Decomposer</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="normalsdecompositor.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="componentdecomposer.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="normalsdecompositor.html#names" class="tsd-kind-icon">names</a>
+								<a href="componentdecomposer.html#names" class="tsd-kind-icon">names</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="normalsdecompositor.html#serie" class="tsd-kind-icon">serie</a>
+								<a href="componentdecomposer.html#serie" class="tsd-kind-icon">serie</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class">
-						<a href="positiondecompositor.html" class="tsd-kind-icon">Position<wbr>Decompositor</a>
+						<a href="eigenvaluesdecomposer.html" class="tsd-kind-icon">Eigen<wbr>Values<wbr>Decomposer</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="vectornormdecompositor.html" class="tsd-kind-icon">Vector<wbr>Norm<wbr>Decompositor</a>
+						<a href="eigenvectorsdecomposer.html" class="tsd-kind-icon">Eigen<wbr>Vectors<wbr>Decomposer</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="functionaldecomposer.html" class="tsd-kind-icon">Functional<wbr>Decomposer</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="normalsdecomposer.html" class="tsd-kind-icon">Normals<wbr>Decomposer</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="positiondecomposer.html" class="tsd-kind-icon">Position<wbr>Decomposer</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="vectornormdecomposer.html" class="tsd-kind-icon">Vector<wbr>Norm<wbr>Decomposer</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="../interfaces/decompositor.html" class="tsd-kind-icon">Decompositor</a>
+						<a href="../interfaces/decomposer.html" class="tsd-kind-icon">Decomposer</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="../modules.html#functional" class="tsd-kind-icon">Functional</a>

@@ -1,10 +1,10 @@
 ```ts
 import { createSerie, DataFrame } from '@youwol/dataframe'
 import {
-    AttributeManager, PositionDecompositor, 
-    EigenValuesDecompositor, EigenVectorsDecompositor,
-    NormalsDecompositor
-} from '../lib/decompose'
+    AttributeManager, PositionDecomposer, 
+    EigenValuesDecomposer, EigenVectorsDecomposer,
+    NormalsDecomposer, FunctionalDecomposer
+} from '@youwol/attribute'
 
 const df = new DataFrame({
     positions: createSerie( {data: [...], itemSize: 3} ),
@@ -15,12 +15,12 @@ const df = new DataFrame({
 })
 
 const mng = new AttributeManager(df, [
-    new PositionDecompositor,
-    new ComponentDecompositor,
-    new EigenValuesDecompositor,
-    new EigenVectorDecompositor,
-    new NormalsDecompositor('n'),
-    new FunctionalDecompositor(1, 'MyAttr', (df: DataFrame) => {
+    new PositionDecomposer,
+    new ComponentDecomposer,
+    new EigenValuesDecomposer,
+    new EigenVectorDecomposer,
+    new NormalsDecomposer('n'),
+    new FunctionalDecomposer(1, 'MyAttr', (df: DataFrame) => {
         const fct = (x,y,z) => x**2 - y***3 + Math.abs(z)
         const positions = df.get('positions')
         positions.map( p => fct(p[0], p[1], p[2]) )
