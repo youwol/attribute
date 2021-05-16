@@ -5,11 +5,17 @@ import { Decomposer } from "../decomposer"
 /**
  * Eigen values for series with itemSize = 6
  */
- export class EigenValuesDecomposer implements Decomposer {
+export class EigenValuesDecomposer implements Decomposer {
+    /**
+     * @hidden 
+     */
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (serie.itemSize!==6 || itemSize!==1) return []
         return [name+'1', name+'2', name+'3']
     }
+    /**
+     * @hidden 
+     */
     serie(df: DataFrame, itemSize: number, name: string): ASerie {
         if (itemSize!==1) return undefined
         let newName = name.substring(0, name.length - 1)
@@ -28,10 +34,16 @@ import { Decomposer } from "../decomposer"
  * Eigen vectors for series with itemSize = 6
  */
 export class EigenVectorsDecomposer implements Decomposer {
+    /**
+     * @hidden 
+     */
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (serie.itemSize!==6 || itemSize!==3) return []
         return [name+'1', name+'2', name+'3']
     }
+    /**
+     * @hidden 
+     */
     serie(df: DataFrame, itemSize: number, name: string): ASerie {
         if (itemSize!==3) return undefined
         let newName = name.substring(0, name.length - 1)

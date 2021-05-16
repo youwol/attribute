@@ -99,13 +99,6 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="positiondecomposer.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="positiondecomposer.html#names" class="tsd-kind-icon">names</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="positiondecomposer.html#serie" class="tsd-kind-icon">serie</a></li>
-							</ul>
-						</section>
 					</div>
 				</section>
 			</section>
@@ -115,83 +108,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Position<wbr>Decomposer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="positiondecomposer.html" class="tsd-signature-type">PositionDecomposer</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Position<wbr>Decomposer<span class="tsd-signature-symbol">(</span>names_<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="positiondecomposer.html" class="tsd-signature-type">PositionDecomposer</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>default</dt>
+									<dd><p>names = <code>[&#39;x&#39;, &#39;y&#39;, &#39;z&#39;]</code></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>names_: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The names for the position coordinates</p>
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="positiondecomposer.html" class="tsd-signature-type">PositionDecomposer</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="names" class="tsd-anchor"></a>
-					<h3>names</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">names<span class="tsd-signature-symbol">(</span>df<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DataFrame</span>, itemSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, serie<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ASerie</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/decomposer.html">Decomposer</a>.<a href="../interfaces/decomposer.html#names">names</a></p>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the potential names decomposition</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>df: <span class="tsd-signature-type">DataFrame</span></h5>
-								</li>
-								<li>
-									<h5>itemSize: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>serie: <span class="tsd-signature-type">ASerie</span></h5>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="serie" class="tsd-anchor"></a>
-					<h3>serie</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">serie<span class="tsd-signature-symbol">(</span>df<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DataFrame</span>, itemSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ASerie</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/decomposer.html">Decomposer</a>.<a href="../interfaces/decomposer.html#serie">serie</a></p>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Get the potential serie decomposed</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>df: <span class="tsd-signature-type">DataFrame</span></h5>
-								</li>
-								<li>
-									<h5>itemSize: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ASerie</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -213,7 +152,7 @@
 						<a href="../pages/Examples/ex1.html">Usage</a>
 					</li>
 					<li class=" pp-nav pp-page">
-						<a href="../pages/Examples/ex2.html">Create decompositor</a>
+						<a href="../pages/Examples/ex2.html">Create decomposer</a>
 					</li>
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
@@ -248,12 +187,6 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="positiondecomposer.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="positiondecomposer.html#names" class="tsd-kind-icon">names</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="positiondecomposer.html#serie" class="tsd-kind-icon">serie</a>
-							</li>
 						</ul>
 					</li>
 				</ul>
@@ -278,7 +211,6 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">

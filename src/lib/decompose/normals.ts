@@ -8,11 +8,17 @@ import { Decomposer } from "../decomposer"
 export class NormalsDecomposer implements Decomposer {
     constructor(private readonly name: string = 'normals') {
     }
+    /**
+     * @hidden 
+     */
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (itemSize !== 3) return []
         if (!df.constains('positions') && !df.constains('indices')) return []
         return [this.name]
     }
+    /**
+     * @hidden 
+     */
     serie(df: DataFrame, itemSize: number, name: string): ASerie {
         const positions = df.get('positions')
         const indices   = df.get('indices')

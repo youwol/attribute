@@ -34,9 +34,11 @@ export class FunctionalDecomposer implements Decomposer {
      * @param fct The fonctional
      * @see [[Functional]]
      */
-    constructor(readonly itemSize: number, readonly name: string, readonly fct: Functional) {
+    constructor(private readonly itemSize: number, private readonly name: string, private readonly fct: Functional) {
     }
-
+    /**
+     * @hidden 
+     */
     names(df: DataFrame, itemSize: number, serie: ASerie, name: string) {
         if (itemSize !== this.itemSize) return []
         
@@ -45,7 +47,9 @@ export class FunctionalDecomposer implements Decomposer {
 
         return [this.name]
     }
-
+    /**
+     * @hidden 
+     */
     serie(df: DataFrame, itemSize: number, name: string): ASerie {
         if (itemSize!==this.itemSize || this.name!==name) return undefined
         return this.fct(df).setName(this.name)

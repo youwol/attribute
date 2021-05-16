@@ -7,7 +7,10 @@ import { Decomposer } from "../decomposer"
  * `Ux`, `Uy` and `Uz`. The sam applies for smatrix3 and matrix3 (appended `xx`...).
  * For all other series, index number are appended to the serie's name, srating at zero.
  */
- export class ComponentDecomposer implements Decomposer {
+export class ComponentDecomposer implements Decomposer {
+    /**
+     * @hidden 
+     */
     names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
         // Passed name is, e.g., 'U' and itemSize=3
         if (name===serie.name && serie.itemSize===1) return []
@@ -24,7 +27,9 @@ import { Decomposer } from "../decomposer"
         for (let i=0; i<itemSize; ++i) names.push(name+i)
         return names
     }
-
+    /**
+     * @hidden 
+     */
     serie(df: DataFrame, itemSize: number, name: string): ASerie {
         // vector3
         let newName = name.substring(0, name.length - 1)
