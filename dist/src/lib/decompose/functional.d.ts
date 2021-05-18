@@ -25,9 +25,9 @@ export declare type Functional = {
  * ```
  */
 export declare class FunctionalDecomposer implements Decomposer {
-    readonly itemSize: number;
-    readonly name: string;
-    readonly fct: Functional;
+    private readonly itemSize;
+    private readonly name;
+    private readonly fct;
     /**
      *
      * @param itemSize The item size of the attribute
@@ -36,6 +36,12 @@ export declare class FunctionalDecomposer implements Decomposer {
      * @see [[Functional]]
      */
     constructor(itemSize: number, name: string, fct: Functional);
+    /**
+     * @hidden
+     */
     names(df: DataFrame, itemSize: number, serie: ASerie, name: string): string[];
+    /**
+     * @hidden
+     */
     serie(df: DataFrame, itemSize: number, name: string): ASerie;
 }

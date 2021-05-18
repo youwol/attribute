@@ -1,6 +1,9 @@
 import { DataFrame, ASerie } from '@youwol/dataframe'
 import { Decomposer } from './decomposer'
 
+/**
+ * Manager of (virtual or not) attributes from series
+ */
 export class AttributeManager {
     private ds_: Decomposer[] = []
 

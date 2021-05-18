@@ -1,5 +1,8 @@
 import { DataFrame, ASerie } from '@youwol/dataframe';
 import { Decomposer } from './decomposer';
+/**
+ * Manager of (virtual or not) attributes from series
+ */
 export declare class AttributeManager {
     private readonly df;
     private ds_;

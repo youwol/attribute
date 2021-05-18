@@ -1,5 +1,5 @@
-import { apply, ASerie, DataFrame } from "@youwol/dataframe"
 import { Decomposer } from "../decomposer"
+import { ASerie, DataFrame, apply } from "@youwol/dataframe"
 
 /**
  * Make x, y and z coordinates accessible as serie if `position' is

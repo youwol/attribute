@@ -81,35 +81,3 @@ test('test 2 on AttributeManager', () => {
     expect(mng.serie(1, 'S3').array[0]).toBeCloseTo(-0.061234505309754744)
     expect(mng.serie(1, 'S3').array[1]).toBeCloseTo(-0.03571276399982312)
 })
-
-test('test normals on AttributeManager', () => {
-    const df = new DataFrame({
-        positions: createSerie( {data: [0,0,0, 1,0,0, 1,1,0], itemSize: 3} ),
-        indices  : createSerie( {data: [0,1,2], itemSize: 3} )
-    })
-
-    const mng = new AttributeManager(df, [
-        new NormalsDecomposer('n')
-    ])
-    
-    expect(mng.names(3)).toEqual(['positions', 'n', 'indices'])
-    expect(mng.serie(3, 'n').array).toEqual([0,0,1])
-})
-
-test('test functional on AttributeManager', () => {
-    const df = new DataFrame({
-        positions: createSerie( {data: [1,2,3, 1,4,3, 7,2,5], itemSize: 3} ),
-    })
-
-    const mng = new AttributeManager(df, [
-        new FunctionalDecomposer(1, 'f', (df: DataFrame) => {
-            const fct = (x,y,z) => x**2-y**3+Math.abs(z)
-            const positions = df.get('positions')
-            return positions.map( p => fct(p[0], p[1], p[2]) )
-        })
-    ])
-
-    const fct = (x,y,z) => x**2-y**3+Math.abs(z)
-    expect(mng.serie(1, 'f').array).toEqual( [fct(1,2,3), fct(1,4,3), fct(7,2,5)] )
-    expect(mng.serie(1, 'f').name).toEqual('f')
-})

@@ -70,11 +70,17 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Allows to get components of serie for which itemSize &gt; 1. For instance,
-							for a serie named &#39;U&#39; with itemSize=3, components names will be
-							<code>Ux</code>, <code>Uy</code> and <code>Uz</code>. The sam applies for smatrix3 and matrix3 (appended <code>xx</code>...).
-						For all other series, index number are appended to the serie&#39;s name, srating at zero.</p>
+						<p>Allows to get components of serie for which itemSize &gt; 1.</p>
 					</div>
+					<p>For instance, for a serie named <code>U</code> with <code>itemSize=3</code>, components names will be
+					<code>Ux</code>, <code>Uy</code> and <code>Uz</code> (3 components).</p>
+					<p>For a serie named <code>S</code> with <code>itemSize=6</code> (symmetric rank 2 tensor of dim 3), components names will be
+					<code>Sxx</code>, <code>Sxy</code>, <code>Sxz</code>, <code>Syy</code>, <code>Syz</code> and <code>Szz</code> (6 components).</p>
+					<p>For a serie named <code>S</code> with <code>itemSize=9</code> (general rank 2 tensor of dim 3), components names
+					will be <code>Sxx</code>, <code>Sxy</code>, <code>Sxz</code>, <code>Syx</code>, <code>Syy</code>, <code>Syz</code>, <code>Szx</code>, <code>Szy</code> and <code>Szz</code> (9 components).</p>
+					<p>For all other series, index number are appended to the serie&#39;s name, starting at zero.
+						For example, for a serie named <code>E</code> with <code>itemSize=4</code>, components names will be
+					<code>E0</code>, <code>E1</code>, <code>E2</code> and <code>E3</code>.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">

@@ -72,8 +72,14 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<ul>
-					<li>Add a prefix in the ctor of EigenValue/EigenVectors? It is pertinent since several
-					series can have be decomposed into eigen vectors? =&gt; add a prefix to the name?: <code>S</code> --&gt; <code>ES1</code></li>
+					<li><p>in <code>NormalDecomposer</code>, be carreful of the duplicated <code>Int32Array</code> instead of <code>Float32Array</code> (since we use <code>map</code> on indices)</p>
+					</li>
+					<li><p>Add a prefix in the ctor of EigenValue/EigenVectors? It is pertinent since several
+						series can have be decomposed into eigen vectors? =&gt; add a prefix to the name?: <code>S</code> --&gt; <code>ES1</code></p>
+					</li>
+					<li><p>In <code>Decomposer.names()</code>, refact: name is the same as the serie&#39;s name? Check!!!</p>
+					</li>
+					<li></li>
 				</ul>
 			</div>
 		</div>

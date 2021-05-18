@@ -4,6 +4,12 @@ import { Decomposer } from "../decomposer";
  * Get the norm of any serie with itemSize > 1 (i.e., norm of any vector)
  */
 export declare class VectorNormDecomposer implements Decomposer {
+    /**
+     * @hidden
+     */
     names(df: DataFrame, itemSize: number, serie: ASerie, name: string): string[];
+    /**
+     * @hidden
+     */
     serie(df: DataFrame, itemSize: number, name: string): ASerie;
 }
