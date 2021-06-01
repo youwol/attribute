@@ -1,4 +1,4 @@
-import { DataFrame, ASerie } from '@youwol/dataframe'
+import { DataFrame, Serie } from '@youwol/dataframe'
 import { Decomposer } from './decomposer'
 
 /**
@@ -35,10 +35,15 @@ export class AttributeManager {
         let names = new Set<string>()
 
         // add series with same itemSize
-        this.df.series.forEach( (info, name) => {
-            if (info.serie.itemSize === itemSize) names.add(name)
+        Object.entries(this.df.series).forEach( ([name, serie]) => {
+            if (serie.itemSize === itemSize) {
+                // Avoid exposing directly 'positions' and 'indices'
+                if ( !(itemSize===3 && (name==='positions'||name==='indices')) ) {
+                    names.add(name)
+                }
+            }
             this.ds_.forEach( d => {
-                d.names(this.df, itemSize, info.serie, name).forEach( n => names.add(n) )
+                d.names(this.df, itemSize, serie, name).forEach( n => names.add(n) )
             })
         })
         return Array.from(names)
@@ -47,10 +52,10 @@ export class AttributeManager {
     /**
      * For a given itemSize and a decomposed's name, get the corresponding serie
      */
-    serie(itemSize: number, name: string): ASerie {
-        for (let [mname, info] of this.df.series) {
-            if (info.serie.itemSize===itemSize && name===mname) {
-                return info.serie.clone(false).setName(name)
+    serie(itemSize: number, name: string): Serie {
+        for (let [mname, serie] of Object.entries(this.df.series)) {
+            if (serie.itemSize===itemSize && name===mname) {
+                return serie.clone(false)//.setName(name)
             }
         }
         for (let d of this.ds_) {

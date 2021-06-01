@@ -1,9 +1,11 @@
-import { createSerie, DataFrame } from '@youwol/dataframe'
+import { DataFrame, Serie } from '@youwol/dataframe'
 import { AttributeManager } from '../lib/manager'
 import { VectorNormDecomposer } from '../lib/decompose'
 
-const df = new DataFrame({
-    U: createSerie( {data: [1,2,3, 6,5,4, 9,5,7], itemSize: 3} )
+const df = DataFrame.create({
+    series: {
+        U: Serie.create( {array: [1,2,3, 6,5,4, 9,5,7], itemSize: 3} )
+    }
 })
 
 const norm = ( p => Math.sqrt(p[0]**2+p[1]**2+p[2]**2) )

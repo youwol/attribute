@@ -1,4 +1,4 @@
-import { apply, ASerie, DataFrame } from "@youwol/dataframe"
+import { apply, Serie, DataFrame, nameOfSerie } from "@youwol/dataframe"
 import { Decomposer } from "../decomposer"
 
 /**
@@ -21,10 +21,13 @@ export class ComponentDecomposer implements Decomposer {
     /**
      * @hidden 
      */
-    names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
+    names(df:DataFrame, itemSize: number, serie: Serie, name: string) {
         // Passed name is, e.g., 'U' and itemSize=3
-        if (name===serie.name && serie.itemSize===1) return []
+        const sname = nameOfSerie(df, serie)
+        if (name===sname && serie.itemSize===1) return []
         if (itemSize>1) return []
+
+        // Avoid using 'positions' and 'indices'
         if (name==='positions' || name==='indices') return []
 
         switch(serie.itemSize) {
@@ -40,41 +43,41 @@ export class ComponentDecomposer implements Decomposer {
     /**
      * @hidden 
      */
-    serie(df: DataFrame, itemSize: number, name: string): ASerie {
+    serie(df: DataFrame, itemSize: number, name: string): Serie {
         // vector3
         let newName = name.substring(0, name.length - 1)
-        let serie   = df.get(newName)
+        let serie   = df.series[newName]
         if (serie) {
             for (let i=0; i<vector3Names.length; ++i) {
                 if (name===newName+vector3Names[i]) {
-                    return apply(serie, item => item[i] ).setName(newName+vector3Names[i])
+                    return apply(serie, item => item[i] )//.setName(newName+vector3Names[i])
                 }
             }
         }
 
         // smatrix3 and matrix3
         newName = name.substring(0, name.length - 2)
-        serie   = df.get(newName)
+        serie   = df.series[newName]
         if (serie) {
             for (let i=0; i<smatrix3Names.length; ++i) {
                 if (name===newName+smatrix3Names[i]) {
-                    return apply(serie, item => item[i] ).setName(newName+smatrix3Names[i])
+                    return apply(serie, item => item[i] )//.setName(newName+smatrix3Names[i])
                 }
             }
             for (let i=0; i<matrix3Names.length; ++i) {
                 if (name===newName+matrix3Names[i]) {
-                    return apply(serie, item => item[i] ).setName(newName+matrix3Names[i])
+                    return apply(serie, item => item[i] )//.setName(newName+matrix3Names[i])
                 }
             }
         }
 
-        // others
+        // Others: use integer
         newName = name.substring(0, name.length - 1)
-        serie   = df.get(newName)
+        serie   = df.series[newName]
         if (serie) {
             for (let i=0; i<itemSize; ++i) {
                 if (name===newName+i) {
-                    return apply(serie, item => item[i] ).setName(newName+i)
+                    return apply(serie, item => item[i] )//.setName(newName+i)
                 }
             }
         }

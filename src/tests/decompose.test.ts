@@ -1,4 +1,4 @@
-import { createSerie, DataFrame } from '@youwol/dataframe'
+import { DataFrame, Serie } from '@youwol/dataframe'
 import { AttributeManager } from '../lib/manager'
 import { 
     PositionDecomposer, EigenValuesDecomposer, 
@@ -8,11 +8,13 @@ import {
 
 
 test('test 1 on AttributeManager', () => {
-    const df = new DataFrame({
-        positions: createSerie( {data: [1,2,3, 4,5,6], itemSize: 3} ),
-        a        : createSerie( {data: [4,9], itemSize: 1}),
-        U        : createSerie( {data: [6,5,4, 3,2,1], itemSize: 3} ),
-        S        : createSerie( {data: [10,11,12,13,14,15, 16,17,18,19,20,21], itemSize: 6} )
+    const df = DataFrame.create({
+        series: {
+            positions: Serie.create( {array: [1,2,3, 4,5,6], itemSize: 3} ),
+            a        : Serie.create( {array: [4,9], itemSize: 1}),
+            U        : Serie.create( {array: [6,5,4, 3,2,1], itemSize: 3} ),
+            S        : Serie.create( {array: [10,11,12,13,14,15, 16,17,18,19,20,21], itemSize: 6} )
+        }
     })
 
     const mng = new AttributeManager(df, [
@@ -22,7 +24,7 @@ test('test 1 on AttributeManager', () => {
     
     const sol = [
         [ 'x',   'y',   'z', 'a',  'Ux', 'Uy',  'Uz',  'Sxx', 'Sxy', 'Sxz', 'Syy', 'Syz', 'Szz' ],
-        [ 'positions', 'U' ],
+        [ 'U' ],
         [ 'S' ],
         [ ]
     ]
@@ -45,7 +47,7 @@ test('test 1 on AttributeManager', () => {
     expect(mng.serie(1, 'Szz').array).toEqual([15,21])
 
 
-    expect(mng.names(3)).toEqual(['positions', 'U'])
+    expect(mng.names(3)).toEqual(['U'])
     expect(mng.serie(3, 'positions').array).toEqual([ 1, 2, 3, 4, 5, 6 ])
     expect(mng.serie(3, 'U').array).toEqual([ 6, 5, 4, 3, 2, 1 ])
 
@@ -54,9 +56,11 @@ test('test 1 on AttributeManager', () => {
 })
 
 test('test 2 on AttributeManager', () => {
-    const df = new DataFrame({
-        U: createSerie( {data: [6,5,4, 3,2,1], itemSize: 3} ),
-        S: createSerie( {data: [10,11,12,13,14,15, 16,17,18,19,20,21], itemSize: 6} )
+    const df = DataFrame.create({
+        series: {
+            U: Serie.create( {array: [6,5,4, 3,2,1], itemSize: 3} ),
+            S: Serie.create( {array: [10,11,12,13,14,15, 16,17,18,19,20,21], itemSize: 6} )
+        }
     })
 
     const mng = new AttributeManager(df, [

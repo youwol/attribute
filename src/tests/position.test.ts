@@ -1,9 +1,11 @@
-import { createSerie, DataFrame } from '@youwol/dataframe'
+import { DataFrame, Serie } from '@youwol/dataframe'
 import { AttributeManager } from '../lib/manager'
 import { PositionDecomposer } from '../lib/decompose'
 
-const df = new DataFrame({
-    positions: createSerie( {data: [1,2,3, 6,5,4, 9,5,7], itemSize: 3} )
+const df = DataFrame.create({
+    series: {
+        positions: Serie.create( {array: [1,2,3, 6,5,4, 9,5,7], itemSize: 3} )
+    }
 })
 
 test('test position decomposer', () => {

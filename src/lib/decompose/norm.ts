@@ -1,4 +1,4 @@
-import { ASerie, DataFrame } from "@youwol/dataframe"
+import { Serie, DataFrame } from "@youwol/dataframe"
 import { norm } from '@youwol/math'
 import { Decomposer } from "../decomposer"
 
@@ -9,21 +9,21 @@ export class VectorNormDecomposer implements Decomposer {
     /**
      * @hidden 
      */
-    names(df:DataFrame, itemSize: number, serie: ASerie, name: string) {
+    names(df:DataFrame, itemSize: number, serie: Serie, name: string) {
         if (serie.itemSize<=1 || itemSize!==1) return []
         return [name] // same name as the vector but will be a scalar (itemSize=1)
     }
     /**
      * @hidden 
      */
-    serie(df: DataFrame, itemSize: number, name: string): ASerie {
+    serie(df: DataFrame, itemSize: number, name: string): Serie {
         if (itemSize!==1) return undefined
 
-        let serie = df.get(name) // since same name
+        let serie = df.series[name] // since same name
         if (serie === undefined)  return undefined
 
         if (serie.itemSize <=1 ) return undefined
 
-        return norm(serie).setName(name)
+        return norm(serie)//.setName(name)
     }
 }

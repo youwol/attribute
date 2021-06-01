@@ -1,8 +1,8 @@
-import { ASerie, DataFrame } from "@youwol/dataframe"
+import { Serie, DataFrame } from "@youwol/dataframe"
 import { Decomposer } from "../decomposer"
 
 export type Functional = {
-    (df: DataFrame): ASerie
+    (df: DataFrame): Serie
 }
 
 /**
@@ -39,7 +39,7 @@ export class FunctionalDecomposer implements Decomposer {
     /**
      * @hidden 
      */
-    names(df: DataFrame, itemSize: number, serie: ASerie, name: string) {
+    names(df: DataFrame, itemSize: number, serie: Serie, name: string) {
         if (itemSize !== this.itemSize) return []
         
         const s = this.fct(df)
@@ -50,8 +50,8 @@ export class FunctionalDecomposer implements Decomposer {
     /**
      * @hidden 
      */
-    serie(df: DataFrame, itemSize: number, name: string): ASerie {
+    serie(df: DataFrame, itemSize: number, name: string): Serie {
         if (itemSize!==this.itemSize || this.name!==name) return undefined
-        return this.fct(df).setName(this.name)
+        return this.fct(df)//.setName(this.name)
     }
 }
