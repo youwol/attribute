@@ -1,3 +1,4 @@
+**project no longer maintained**
 # @youwol/attribute
 
 
